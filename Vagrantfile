@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.define "developmenttermainRH7" do |developmentterminalRH7|
     developmenttermainRH7.vm.box = "clouddood/RH7.5_baserepo"
-    developmenttermainRH7.vm.hostname = "pythonRH7"
+    developmenttermainRH7.vm.hostname = "developmentterminalRH7"
     developmenttermainRH7.vm.network "private_network", ip: "192.168.60.148"
     developmenttermainRH7.vm.provision "shell", :inline => "sudo echo '192.168.60.148 developmentterminalRH7.local developmentterminalRH7' >> /etc/hosts"
 
@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
     end
     # Update
     developmenttermainRH7.vm.provision "update", type: "ansible" do |ansible|
-      ansible.playbook = "deploy_developmentterminalRH7.yml"
+      ansible.playbook = "deploy_developmentTerminalRH7.yml"
       ansible.inventory_path = "vagrant_hosts"
       #ansible.tags = ansible_tags
       #ansible.verbose = ansible_verbosity
